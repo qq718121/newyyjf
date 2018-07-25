@@ -1,0 +1,75 @@
+@mixin nav-style-taggle($bg,$color) {
+  background: $bg;
+  color: $color !important;
+}
+
+@mixin triangle {
+  &:before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+  }
+}
+
+@mixin set-font($family:'微软雅黑',$color:'#000',$size:16px,$line:16px,$let:1) {
+  font-family: $family;
+  color: $color;
+  letter-spacing: $let;
+  font-size: $size;
+  line-height: $line;
+}
+
+@mixin justContent($justContent) {
+  -webkit-box-pack: $justContent;
+  -moz-justify-content: $justContent;
+  -webkit-justify-content: $justContent;
+  justify-content: $justContent;
+}
+
+@mixin flex {
+  display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+  display: -moz-box; /* 老版本语法: Firefox (buggy) */
+  display: -ms-flexbox; /* 混合版本语法: IE 10 */
+  display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+  display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+}
+
+@mixin alignItems($alignItems) {
+  -webkit-box-align: $alignItems;
+  -moz-align-items: $alignItems;
+  -webkit-align-items: $alignItems;
+  align-items: $alignItems;
+}
+
+@mixin transForm($form) {
+  -ms-transform: $form;
+  -moz-transform: $form;
+  -webkit-transform: $form;
+  -o-transform: $form;
+  transform: $form;
+}
+
+@mixin transTion($type:all,$time:1s,$ease:ease-in) {
+  -moz-transition: $type $time $ease;
+  -webkit-transition: $type $time $ease;
+  -o-transition: $type $time $ease;
+  transition: $type $time $ease;
+}
+
+@mixin hidePc() {
+  @media (max-width: 768px) {
+    .u-hide-pc {
+      display: none;
+    }
+    .u-hide-phone {
+      display: block;
+    }
+  }
+}

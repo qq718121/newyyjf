@@ -1,0 +1,10 @@
+// return height %
+@function returnHeight($height,$preHeight:4682px) {
+     @return $height/$preHeight*100%;
+ }
+ 
+ 
+ // return width %
+ @function returnWidth($width,$preWidth:1440px) {
+      @return $width/$preWidth*100%;
+  }

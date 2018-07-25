@@ -1,0 +1,563 @@
+@import './mixin';
+@import './func';
+
+// CSS 变量
+$max-width: 100%;
+$container-width: 100%;
+$container-height: 4682px;
+$navColor: #fff;
+$u-bg-title-height: 1009px;
+$u-bg-circle1-top: 732px;
+$u-bg-circle1-width: 640px;
+$u-bg-circle1-height: 919px;
+$u-bg-circle2-bottom: 1734px;
+$u-bg-circle2-width: 815px;
+$u-bg-circle2-height: 841px;
+$g-nav-padding-left: 113px;
+$g-nav-padding-height: 93px;
+$u-logo-width: 192px;
+$nav-link-bg: '';
+$nav-link-color: #fff;
+$nav-active-bg: #fff;
+$nav-active-color: #0080FF;
+//样式
+.navbar-dark .navbar-nav .nav-link {
+  color: $navColor;
+  font-family: PingFangSC-Medium;
+  font-size: 16px;
+  &:hover {
+    color: $navColor;
+  }
+  &:active {
+    color: $navColor;
+  }
+}
+
+.u-hide-phone {
+  display: none;
+}
+
+.nav-link-style {
+  @include nav-style-taggle($nav-link-bg, $nav-link-color);
+}
+
+.nav-active-style {
+  @include nav-style-taggle($nav-active-bg, $nav-active-color);
+}
+
+.container {
+  @media (max-width: 996px) {
+    max-width: 100%;
+  }
+}
+
+.m-container {
+  position: relative;
+  max-width: 1960px;
+  width: $container-width;
+  //height: $container-height;
+  padding: 0;
+  .g-bg {
+    position: absolute;
+    top: 0;
+    width: $container-width;
+    height: $container-width;
+    @include hidePc();
+    .u-bg-title {
+      margin: auto;
+      width: $container-width;
+      height: $u-bg-title-height;
+    }
+    .u-bg-circle1 {
+      position: absolute;
+      margin-top: returnWidth($u-bg-circle1-top);
+      right: 0;
+      top: 0;
+      max-width: $u-bg-circle1-width;
+      width: returnWidth($u-bg-circle1-width);
+      height: returnHeight($u-bg-circle1-height);
+    }
+    .u-bg-circle2 {
+      position: absolute;
+      margin-bottom: returnWidth($u-bg-circle2-bottom);
+      bottom: 0;
+      left: 0;
+      max-width: $u-bg-circle2-width;
+      width: returnWidth($u-bg-circle2-width);
+      height: returnHeight($u-bg-circle2-height);
+    }
+  }
+  .main-body {
+    position: relative;
+    z-index: 1;
+    width: $container-width;
+    height: $container-width;
+    .g-nav {
+      padding: 0;
+      min-height: $g-nav-padding-height;
+      .u-logo {
+        width: $u-logo-width;
+        line-height: 55px;
+        text-align: left;
+        @media (max-width: 970px) {
+          margin-left: 30px;
+        }
+        @media (max-width: 768px) {
+          margin-left: 20px;
+        }
+      }
+      .g-nav-btn {
+        border: none;
+      }
+      .u-navbar-toggler {
+        display: inline-block;
+        width: 50px;
+        img {
+          width: 100%;
+        }
+      }
+      .collapse {
+        justify-content: flex-end;
+        margin-right: returnWidth($g-nav-padding-left);
+      }
+      .navbar-collapse {
+        margin: 0;
+      }
+      .u-nav-list {
+        li {
+          position: relative;
+          margin-left: 50px;
+          @media (max-width: 768px) {
+            margin-left: 0;
+            width: 100%;
+          }
+          a {
+            padding: 4px 20px;
+            border-radius: 32px;
+            &:link {
+              color: rgb(255, 255, 255);
+            }
+            &:visited {
+              color: rgb(255, 255, 255);
+            }
+            &:hover {
+              color: rgb(255, 255, 255);
+            }
+            &:active {
+              color: rgb(255, 255, 255);
+            }
+          }
+        }
+      }
+      .u-rq-code {
+        display: none;
+        position: absolute;
+        box-sizing: border-box;
+        top: 100%;
+        margin-top: 10px;
+        left: -27px;
+        width: 129px;
+        border: 6px solid #fff;
+        border-radius: 10px;
+        @include triangle();
+
+      }
+    }
+    .g-title-content {
+      margin-top: returnWidth(168px);
+      // margin-left: returnWidth(170px);
+      // width: returnWidth(532px);
+      width: 100%;
+
+      @include hidePc();
+
+      h1 {
+        $font: PingFangSC-Medium, #fff, 48px, 60px, 3.1;
+        @include set-font($font...);
+      }
+      p {
+        $font: PingFangSC-Medium, #fff, 20px, 20px, 3.1;
+        @include set-font($font...);
+        margin-top: returnWidth(30px);
+      }
+      .u-load-btn {
+        $font: PingFangSC-Medium, #0080ff, 16px, 42px, 3.1;
+        @include set-font($font...);
+        margin-top: returnWidth(60px);
+        width: 200px;
+        height: 42px;
+        cursor: pointer;
+        background: #fff;
+        border-radius: 42px;
+        text-align: center;
+      }
+    }
+    .g-img-content-list {
+      margin-top: returnWidth(189px);
+      .card-deck {
+        @include justContent(space-around);
+      }
+      .card-img {
+        max-width: 322px;
+        @media (max-width: 768px) {
+          max-width: 100%;
+        }
+        padding: 30px;
+        box-shadow: 0 2px 20px 0 rgba(93, 160, 252, 0.24);
+        border: none;
+      }
+      //.card-img2 {
+      //  margin-right: 50px;
+      //  margin-left: 50px;
+      //}
+      .card-content {
+        padding-left: 0;
+        padding-bottom: 0;
+      }
+      .card-title-h5 {
+        $font: PingFangSC-Medium, #4D535D, 20px, 40px, 3.1;
+        @include set-font($font...);
+      }
+      .card-title-p {
+        $font: PingFangSC-Medium, #8B949E, 16px, 25px, 0;
+        @include set-font($font...);
+      }
+    }
+    .u-tit-h1 {
+      $font: PingFangSC-Medium, #212832, 28px, 28px, 0;
+      @include set-font($font...);
+      width: 100%;
+      text-align: center;
+    }
+    .g-video {
+      height: 641px;
+      @media (max-width: 768px) {
+        height: 220px;
+      }
+      margin-top: returnWidth(166px);
+      .u-video-container {
+        padding: 30px;
+        box-shadow: 0 2px 20px 0 rgba(93, 160, 252, 0.24);
+        border-radius: 16px;
+        margin: 30px auto 0;
+        width: returnWidth(1037px, 1140px);
+        height: returnHeight(583px, 641px);
+        background: #fff;
+        @media (max-width: 768px) {
+          margin-left: 0;
+          margin-right: 0;
+          padding: 0;
+          width: 100%;
+          //height:100%;
+        }
+        .u-video {
+          width: 100% !important;
+          height: 100% !important;
+          border-radius: 16px;
+        }
+      }
+    }
+    .g-artifact-list {
+      margin-top: returnWidth(136px);
+      @media (max-width: 768px) {
+        margin-top: returnWidth(300px);
+      }
+      .g-artifact-deck {
+        margin: 30px auto 0;
+        @media (max-width: 768px) {
+          flex-direction: row;
+          flex-flow: wrap;
+          justify-content: center;
+        }
+        .u-artifact-li {
+          border: none;
+          background: none;
+          @media (max-width: 768px) {
+            min-width: 200px;
+          }
+          h5 {
+            $font: PingFangSC-Medium, #3E3E3E, 16px, 22px, 0;
+            @include set-font($font...);
+          }
+          p {
+            $font: PingFangSC-Medium, #4D535D, 14px, 22px, 0;
+            @include set-font($font...);
+          }
+          .u-artifact-img {
+            margin: auto;
+            width: 164px;
+            height: 164px;
+          }
+        }
+      }
+    }
+    .g-monitor-server {
+      width: returnWidth(950px, 1110px);
+      height: returnHeight(715px);
+      margin: returnWidth(142px) auto 0;
+      .u-monitor-server-animation {
+        //     margin-top: returnWidth(30px,950px);
+      }
+      .u-phone {
+        position: relative;
+        z-index: 9;
+        width: returnWidth(394px, 950px);
+        float: left;
+        img {
+          width: 100%;
+        }
+        @media (max-width: 768px) {
+          width: 60%;
+          margin: auto;
+          float: none;
+        }
+      }
+      .u-line {
+        width: returnWidth(226px, 950px);
+        float: left;
+        margin-top: returnWidth(148px, 950px);
+        margin-left: returnWidth(-55px, 950px);
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+      .u-monitor-server-list {
+        float: left;
+        width: returnWidth(372px, 950px);
+        margin-top: returnWidth(66px, 950px);
+        margin-left: returnWidth(-25px, 950px);
+        @media (max-width: 768px) {
+          float: none;
+          width: 100%;
+          margin: auto;
+        }
+
+        .u-monitor-server-li {
+          margin-top: returnWidth(20px, 331px);
+          padding: 20px 30px;
+          flex-direction: row;
+          align-items: center;
+          cursor: pointer;
+          position: relative;
+          z-index: 99;
+          border: none;
+          text-align: left;
+          box-shadow: 0px 3px 33px 0px rgba(59, 127, 194, 0.21);
+          @include transTion(all, 0.6s);
+          &:hover {
+            @include transForm(scale(1.1) translateZ(0));
+            -webkit-backface-visibility: hidden;
+            position: relative;
+            z-index: 999;
+          }
+          .card-body {
+            padding: 0;
+          }
+          .u-monitor-server-img {
+            width: returnWidth(82px, 331px);
+            margin-right: 20px;
+            @media (max-width: 768px) {
+              width: 77px;
+            }
+          }
+          h5 {
+            $font: PingFangSC-Medium, #3E3E3E, 16px, 16px, 0;
+            @include set-font($font...);
+            @media (max-width: 768px) {
+              $font: PingFangSC-Medium, #3E3E3E, 14px, 18px, 0;
+              @include set-font($font...);
+            }
+          }
+          p {
+            $font: PingFangSC-Medium, #999999, 16px, 22px, 0;
+            @include set-font($font...);
+            @media (max-width: 768px) {
+              $font: PingFangSC-Medium, #999999, 10px, 18px, 0;
+              @include set-font($font...);
+            }
+          }
+        }
+      }
+    }
+    .g-sir-banner {
+      max-width: $max-width;
+      padding: 0;
+      height: 395px;
+      background: #F7FAFF;
+      margin-top: 95px;
+      @media (max-width: 768px) {
+        height: 600px;
+      }
+      .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        background: #B9C0C8;
+        border-radius: 10px;
+      }
+      .carousel-indicators .active {
+        background: #0080FF;
+      }
+      .g-carouselExampleIndicators {
+        height: 100%;
+        .g-carousel-inner {
+          height: 100%;
+          .g-banner-item {
+            position: relative;
+            height: 100%;
+            background: #F7FAFF;
+            .g-banner-item-inner {
+              padding: 100px 173px 100px 188px;
+              @media (max-width: 768px) {
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+              }
+              //height: returnHeight(195px, 195px);
+              @include flex();
+              @include justContent(space-around);
+              .g-banner-item-inner-img {
+                float: left;
+                max-width: 195px;
+                width: returnWidth(195px, 1079px);
+                @media (max-width: 768px) {
+                  width: 100%;
+                  max-width: 100%;
+                }
+                //height: returnHeight(195px, 195px);
+              }
+              .g-banner-item-inner-text {
+                float: left;
+                width: returnWidth(864px, 1079px);
+                padding: returnWidth(30px, 884px+195px) returnWidth(36px, 884px+195px) returnWidth(50px, 884px+195px) returnWidth(40px, 884px+195px);
+                background: #fff;
+                @media (max-width: 768px) {
+                  width: 100%;
+                }
+                //height: returnHeight(195px, 195px);
+                h2 {
+                  $font: PingFangSC-Regular, #3E3E3E, 28px, 28px, 0;
+                  @include set-font($font...);
+                }
+                span {
+                  display: inline-block;
+                  height: 22px;
+                  margin-top: 10px;
+                  margin-right: 10px;
+                  padding: 0 3px;
+                  border: 1px solid rgba(102, 179, 255, 1);
+                  border-radius: 4px;
+                  $font: PingFangSC-Regular, #66B3FF, 14px, 20px, 0;
+                  @include set-font($font...);
+                }
+                p {
+                  margin-top: 10px;
+                  $font: PingFangSC-Regular, #4D535D, 14px, 24px, 0;
+                  @include set-font($font...);
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+    .g-firm-state {
+      margin-top: 71px;
+      .g-firm-state-item {
+        margin-top: 30px;
+
+        @include justContent(space-around);
+        .g-firm-state-item-li {
+          padding: 23px 26px 21px 18px;
+          max-width: 541px !important;
+          background: #F7FAFF;
+          margin-top: 20px;
+          //@media (max-width: 768px) {
+          //  height: 215px;
+          //}
+        }
+        p {
+          $font: PingFangSC-Medium, #4D535D, 16px, 22px, 0;
+          @include set-font($font...);
+          height: 44px;
+          @media (max-width: 768px) {
+            height: auto;
+          }
+        }
+        .u-firm-state-date {
+          margin-top: 10px;
+          span {
+            $font: PingFangSC-Medium, #3E3E3E, 13px, 18px, 0;
+            @include set-font($font...);
+          }
+          .icon1 {
+            float: left;
+          }
+          .icon2 {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+}
+
+.g-footer {
+  padding: 0 120px;
+  padding-top: 267px;
+  width: 100%;
+  height: 443px;
+  background: url("../images/foot@3x.png");
+  background-size: 100% 100%;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    background: #F7FAFF;
+    height: 170px;
+    margin-top: 50px;
+    @include flex();
+    @include alignItems(center);
+  }
+  .g-foot-content {
+    @include flex();
+    @include justContent(space-between);
+    @include alignItems(center);
+    @media (max-width: 768px) {
+      width: 100%;
+      @include justContent(center);
+    }
+    .logo {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+    .telMe {
+      @include flex();
+      @include justContent(space-around);
+      @include alignItems(center);
+      .telme-qr {
+        width: 100px;
+        height: 100px;
+        background: url("../images/Group@3x.png");
+        background-size: cover;
+        margin-right: 10px;
+        @media (max-width: 768px) {
+          width: 55px;
+          height: 55px;
+        }
+      }
+      h3 {
+        $font: PingFangSC-Medium, #3E3E3E, 16px, 22px, 0;
+        @include set-font($font...);
+      }
+      p {
+        $font: PingFangSC-Medium, #8B949E, 14px, 20px, 0;
+        @include set-font($font...);
+      }
+    }
+  }
+}
