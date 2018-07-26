@@ -16,36 +16,17 @@
     <meta name="keywords" content="鹰眼鉴房，鹰眼，新房，二手房，房产质量，房产数据服务平台，专注楼盘质量，房产大数据"/>
     <meta name="description" content="鹰眼鉴房，国内首家专注于楼盘质量的房产数据信息服务平台，在全方位房产质量大数据支持下，协助更多购房人更加轻松、便捷地甄选优质房产。"/>
     <meta id='rem' name="copyright" content="北京买家帮网络信息有限公司">
+    <link rel="bookmark" type="image/x-icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
-    <!-- <script>
-      "use strict";
-
-      function create_script(e) {
-          var t = (document.getElementById("rem"), document.createElement("script"));
-          t.type = "text/javascript", t.src = e, document.getElementsByTagName("head")[0].appendChild(t), t = null
-      }
-
-      function px2rem() {
-          var e = navigator.userAgent.toLowerCase(),
-              t = "ipad" == e.match(/ipad/i),
-              i = "iphone os" == e.match(/iphone os/i),
-              c = "midp" == e.match(/midp/i),
-              a = "rv:1.2.3.4" == e.match(/rv:1.2.3.4/i),
-              m = "ucweb" == e.match(/ucweb/i),
-              n = "android" == e.match(/android/i),
-              r = "windows ce" == e.match(/windows ce/i),
-              o = "windows mobile" == e.match(/windows mobile/i);
-          (t || i || c || a || m || n || r || o) && create_script("./vendor/rem.min.js")
-      }
-      px2rem();
-  </script> -->
     <link rel="stylesheet" href="./css/build.min.css">
 </head>
 
 <body>
 <div class="container-fluid m-container" style="overflow: scroll" data-spy="scroll" data-target="#navbar-example2"
      data-offset="0">
-    <div class="g-bg">
+    <div class="g-bg" id="homes">
         <div class="u-bg-title u-hide-phone">
             <img src="./images/yidongduan_banner@2x.png" style="width: 100%" alt="">
         </div>
@@ -61,10 +42,10 @@
     </div>
     <div class="main-body scrollspy-example" data-spy="scroll" data-target="#collapsibleNavbar"
          data-offset="0">
-        <div class="container">
-            <nav class="navbar navbar-expand-md  navbar-dark g-nav" id="home">
+        <div class="container g-nav-container">
+            <nav class="navbar navbar-expand-md navbar-dark g-nav">
                   <span class="u-logo">
-                        <img src="./images/logo_write.png" class="img-fluid" alt="">
+                        <!--<img src="./images/logo_write.png" class="img-fluid" alt="">-->
                   </span>
                 <button class="navbar-toggler g-nav-btn" type="button" data-toggle="collapse"
                         data-target="#collapsibleNavbar">
@@ -76,7 +57,7 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav u-nav-list">
                         <li class="nav-item">
-                            <a class="nav-link" href="#home">首页</a>
+                            <a class="nav-link" href="#homes">首页</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#server">产品服务</a>
@@ -370,70 +351,30 @@
                         </div>
                     </div>
                 </div>
+                <p class="u-brand">Copyright © 2018 北京买家帮网络信息有限公司 版权所有 - 京ICP备17059265号-1</p>
             </div>
         </footer>
     </div>
 </div>
 
-<!--<div id="content" style='height: 100%'></div>-->
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./vendor/offlights.min.js"></script>
-<script type="text/javascript" src="./vendor/ckplayer.min.js" charset="utf-8"></script>
-<script src="./js/nav.min.js"></script>
+<script type="text/javascript" src="./vendor/ckplayer.min.js"></script>
+<!--<script src="./js/nav.min.js"></script>-->
+<!--<script src="./js/video.min.js"></script>-->
+<script src="./js/build.min.js"></script>
 <script>
-    var flashvars = {
-        f: 'http://211.161.125.134/69742B60AD5358221F402E2DA3/03000A01005B30D2ED49D8805C1B1D4B5FCCA5-F14F-4849-82B6-8C21C4DB9153.mp4?ccode=0502&duration=112&expire=18000&psid=266ea6337588e421f8fcc16badce6c6c&sp=&ups_client_netip=79451ff2&ups_ts=1532425171&ups_userid=&utid=J8W4E6ba3WECAXlFH%2FJ2yP08&vid=XMzY4NjAyNTE5Ng%3D%3D&vkey=B906b549f7c822a8e20ca8d7c8fe084ec',//视频地址
-        a: '',//调用时的参数，只有当s>0的时候有效
-        s: '0',//调用方式，0=普通方法（f=视频地址），1=网址形式,2=xml形式，3=swf形式(s>0时f=网址，配合a来完成对地址的组装)
-        c: '0',//是否读取文本配置,0不是，1是
-        x: '',//调用配置文件路径，只有在c=1时使用。默认为空调用的是ckplayer.xml
-        i: 'http://www.ckplayer.com/static/images/cqdw.jpg',//初始图片地址
-        d: 'http://www.ckplayer.com/down/pause6.1_1.swf|http://www.ckplayer.com/down/pause6.1_2.swf',//暂停时播放的广告，swf/图片,多个用竖线隔开，图片要加链接地址，没有的时候留空就行
-        u: '',//暂停时如果是图片的话，加个链接地址
-        l: 'http://www.ckplayer.com/down/adv6.1_1.swf|http://www.ckplayer.com/down/adv6.1_2.swf',//前置广告，swf/图片/视频，多个用竖线隔开，图片和视频要加链接地址
-        r: '',//前置广告的链接地址，多个用竖线隔开，没有的留空
-        t: '10|10',//视频开始前播放swf/图片时的时间，多个用竖线隔开
-        y: '',//这里是使用网址形式调用广告地址时使用，前提是要设置l的值为空
-        z: 'http://www.ckplayer.com/down/buffer.swf',//缓冲广告，只能放一个，swf格式
-        e: '8',//视频结束后的动作，0是调用js函数，1是循环播放，2是暂停播放并且不调用广告，3是调用视频推荐列表的插件，4是清除视频流并调用js功能和1差不多，5是暂停播放并且调用暂停广告
-        v: '80',//默认音量，0-100之间
-        p: '0',//视频默认0是暂停，1是播放，2是不加载视频
-        h: '0',//播放http视频流时采用何种拖动方法，=0不使用任意拖动，=1是使用按关键帧，=2是按时间点，=3是自动判断按什么(如果视频格式是.mp4就按关键帧，.flv就按关键时间)，=4也是自动判断(只要包含字符mp4就按mp4来，只要包含字符flv就按flv来)
-        q: '',//视频流拖动时参考函数，默认是start
-        m: '',//让该参数为一个链接地址时，单击播放器将跳转到该地址
-        o: '',//当p=2时，可以设置视频的时间，单位，秒
-        w: '',//当p=2时，可以设置视频的总字节数
-        g: '',//视频直接g秒开始播放
-        j: '',//跳过片尾功能，j>0则从播放多少时间后跳到结束，<0则总总时间-该值的绝对值时跳到结束
-        k: '32|63',//提示点时间，如 30|60鼠标经过进度栏30秒，60秒会提示n指定的相应的文字
-        n: '这是提示点的功能，如果不需要删除k和n的值|提示点测试60秒',//提示点文字，跟k配合使用，如 提示点1|提示点2
-        wh: '',//宽高比，可以自己定义视频的宽高或宽高比如：wh:'4:3',或wh:'1080:720'
-        lv: '0',//是否是直播流，=1则锁定进度栏
-        loaded: 'loadedHandler',//当播放器加载完成后发送该js函数loaded
-        //调用播放器的所有参数列表结束
-        //以下为自定义的播放器参数用来在插件里引用的
-        my_title: '演示视频标题文字',
-        my_url: encodeURIComponent(window.location.href)//本页面地址
-        //调用自定义播放器参数结束
-    };
-    var params = {bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always'};//这里定义播放器的其它参数如背景色（跟flashvars中的b不同），是否支持全屏，是否支持交互
-    var video = ['http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4'];
-    CKobject.embed('ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', false, flashvars, video, params);
-    function loadedHandler() {
-        if (CKobject.getObjectById('ckplayer_a1').getType()) { //说明使用html5播放器
-            alert('播放器已加载，调用的是HTML5播放模块');
-        } else {
-            alert('播放器已加载，调用的是Flash播放模块');
-        }
-    }
-</script>
-<!--<script>-->
-<!--$(function () {-->
-<!--$('#content').load('./components/mjb.html');-->
-<!--})-->
-<!--</script>-->
 
+    $(function () {
+        $('.carousel').carousel({
+            interval: 3000,
+        });
+        $('.u-load-btn').unbind().bind('click', function () {
+            $(window).attr('location', 'http://www.homehawkeye.com/appDown.html');
+        });
+    })
+
+</script>
 </body>
 
 </html>

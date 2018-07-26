@@ -20,9 +20,9 @@
 
 @mixin set-font($family:'微软雅黑',$color:'#000',$size:16px,$line:16px,$let:1) {
   font-family: $family;
-  color: $color;
+  color: $color !important;
   letter-spacing: $let;
-  font-size: $size;
+  font-size: $size !important;
   line-height: $line;
 }
 
@@ -72,4 +72,12 @@
       display: block;
     }
   }
+}
+
+@mixin ellipsis($row) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $row;
 }

@@ -55,6 +55,9 @@ $nav-active-color: #0080FF;
   position: relative;
   max-width: 1960px;
   width: $container-width;
+  @media (max-width: 768px) {
+    padding-top: 59px;
+  }
   //height: $container-height;
   padding: 0;
   .g-bg {
@@ -76,6 +79,10 @@ $nav-active-color: #0080FF;
       max-width: $u-bg-circle1-width;
       width: returnWidth($u-bg-circle1-width);
       height: returnHeight($u-bg-circle1-height);
+      @media (max-width: 768px) {
+        top: 27%;
+        margin-top: auto;
+      }
     }
     .u-bg-circle2 {
       position: absolute;
@@ -85,6 +92,10 @@ $nav-active-color: #0080FF;
       max-width: $u-bg-circle2-width;
       width: returnWidth($u-bg-circle2-width);
       height: returnHeight($u-bg-circle2-height);
+      @media (max-width: 768px) {
+        bottom: 37%;
+        margin-bottom: auto;
+      }
     }
   }
   .main-body {
@@ -92,22 +103,41 @@ $nav-active-color: #0080FF;
     z-index: 1;
     width: $container-width;
     height: $container-width;
+    .g-nav-container {
+
+      @media (max-width: 768px) {
+        padding: 0;
+        background: #fff;
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+      }
+
+    }
     .g-nav {
       padding: 0;
       min-height: $g-nav-padding-height;
+      @media (max-width: 768px) {
+        min-height: 59px;
+      }
       .u-logo {
-        width: $u-logo-width;
+        width: $u-logo-width/1.5;
+        height: 44px;
         line-height: 55px;
         text-align: left;
+        background: url('../images/logo_write.png') no-repeat center;
+        background-size: 100%;
         @media (max-width: 970px) {
           margin-left: 30px;
         }
         @media (max-width: 768px) {
           margin-left: 20px;
+          background: url('../images/hblogo.png') no-repeat center;
+          background-size: 100% 100%;
         }
       }
       .g-nav-btn {
-        border: none;
+        border: none !important;
       }
       .u-navbar-toggler {
         display: inline-block;
@@ -124,16 +154,22 @@ $nav-active-color: #0080FF;
         margin: 0;
       }
       .u-nav-list {
+        @media (max-width: 768px) {
+          height: 100vh;
+        }
         li {
           position: relative;
           margin-left: 50px;
           @media (max-width: 768px) {
             margin-left: 0;
             width: 100%;
+            padding: 20px 0;
           }
           a {
             padding: 4px 20px;
             border-radius: 32px;
+            text-align: center;
+
             &:link {
               color: rgb(255, 255, 255);
             }
@@ -145,6 +181,17 @@ $nav-active-color: #0080FF;
             }
             &:active {
               color: rgb(255, 255, 255);
+            }
+
+          }
+          @media (max-width: 768px) {
+            .nav-link-style {
+              $font: PingFangSC-Medium, #B9C0C8, 24px, 48px, 0;
+              @include set-font($font...);
+            }
+            .nav-active-style {
+              font-size: 24px;
+              line-height: 48px;
             }
           }
         }
@@ -160,7 +207,10 @@ $nav-active-color: #0080FF;
         border: 6px solid #fff;
         border-radius: 10px;
         @include triangle();
-
+        @media (max-width: 768px) {
+          left: 50%;
+          margin-left: -64.5px;
+        }
       }
     }
     .g-title-content {
@@ -174,11 +224,17 @@ $nav-active-color: #0080FF;
       h1 {
         $font: PingFangSC-Medium, #fff, 48px, 60px, 3.1;
         @include set-font($font...);
+        @media (max-width: 768px) {
+          font-size: 40px !important;
+        }
       }
       p {
-        $font: PingFangSC-Medium, #fff, 20px, 20px, 3.1;
+        $font: PingFangSC-Medium, #fff, 24px, 20px, 3.1;
         @include set-font($font...);
         margin-top: returnWidth(30px);
+        @media (max-width: 768px) {
+          font-size: 14px !important;
+        }
       }
       .u-load-btn {
         $font: PingFangSC-Medium, #0080ff, 16px, 42px, 3.1;
@@ -228,6 +284,9 @@ $nav-active-color: #0080FF;
       @include set-font($font...);
       width: 100%;
       text-align: center;
+      @media (max-width: 768px) {
+        font-size: 22px !important;
+      }
     }
     .g-video {
       height: 641px;
@@ -273,16 +332,27 @@ $nav-active-color: #0080FF;
           border: none;
           background: none;
           @media (max-width: 768px) {
-            min-width: 200px;
+            width: 164px !important;
           }
+
           h5 {
             $font: PingFangSC-Medium, #3E3E3E, 16px, 22px, 0;
             @include set-font($font...);
+            @media (max-width: 768px) {
+              font-size: 14px !important;
+            }
           }
           p {
             $font: PingFangSC-Medium, #4D535D, 14px, 22px, 0;
             @include set-font($font...);
+            @media (max-width: 768px) {
+              font-size: 12px !important;
+            }
+            @media (max-width: 468px) {
+              font-size: 10px !important;
+            }
           }
+
           .u-artifact-img {
             margin: auto;
             width: 164px;
@@ -299,18 +369,22 @@ $nav-active-color: #0080FF;
         //     margin-top: returnWidth(30px,950px);
       }
       .u-phone {
+
         position: relative;
         z-index: 9;
         width: returnWidth(394px, 950px);
         float: left;
+        background: url("../images/phone_bg.png") no-repeat;
+        background-size: cover;
         img {
           width: 100%;
         }
         @media (max-width: 768px) {
-          width: 60%;
-          margin: auto;
+          width: 90%;
+          margin: 10px auto;
           float: none;
         }
+
       }
       .u-line {
         width: returnWidth(226px, 950px);
@@ -343,7 +417,7 @@ $nav-active-color: #0080FF;
           border: none;
           text-align: left;
           box-shadow: 0px 3px 33px 0px rgba(59, 127, 194, 0.21);
-          @include transTion(all, 0.6s);
+          @include transTion(all, 0.4s);
           &:hover {
             @include transForm(scale(1.1) translateZ(0));
             -webkit-backface-visibility: hidden;
@@ -382,11 +456,12 @@ $nav-active-color: #0080FF;
     .g-sir-banner {
       max-width: $max-width;
       padding: 0;
-      height: 395px;
+      //height: 395px;
       background: #F7FAFF;
       margin-top: 95px;
       @media (max-width: 768px) {
-        height: 600px;
+        height: auto;
+        padding: 30px 0;
       }
       .carousel-indicators li {
         width: 10px;
@@ -402,7 +477,7 @@ $nav-active-color: #0080FF;
         .g-carousel-inner {
           height: 100%;
           .g-banner-item {
-            position: relative;
+            //position: relative;
             height: 100%;
             background: #F7FAFF;
             .g-banner-item-inner {
@@ -411,27 +486,37 @@ $nav-active-color: #0080FF;
                 padding: 0;
                 display: flex;
                 flex-direction: column;
+                margin: auto;
+                width: 70%;
               }
-              //height: returnHeight(195px, 195px);
               @include flex();
               @include justContent(space-around);
               .g-banner-item-inner-img {
                 float: left;
                 max-width: 195px;
-                width: returnWidth(195px, 1079px);
+                img {
+                  height: 100%;
+                }
+                width: 200px;
+                height: 200px;
                 @media (max-width: 768px) {
                   width: 100%;
                   max-width: 100%;
+                  height: auto;
+                  img {
+                    height: auto;
+                  }
                 }
-                //height: returnHeight(195px, 195px);
               }
               .g-banner-item-inner-text {
                 float: left;
                 width: returnWidth(864px, 1079px);
                 padding: returnWidth(30px, 884px+195px) returnWidth(36px, 884px+195px) returnWidth(50px, 884px+195px) returnWidth(40px, 884px+195px);
                 background: #fff;
+                height: 200px;
                 @media (max-width: 768px) {
                   width: 100%;
+                  padding-bottom: 40px;
                 }
                 //height: returnHeight(195px, 195px);
                 h2 {
@@ -450,9 +535,11 @@ $nav-active-color: #0080FF;
                   @include set-font($font...);
                 }
                 p {
+                  height: 48px;
                   margin-top: 10px;
                   $font: PingFangSC-Regular, #4D535D, 14px, 24px, 0;
                   @include set-font($font...);
+                  @include ellipsis(2);
                 }
               }
             }
@@ -480,6 +567,7 @@ $nav-active-color: #0080FF;
           $font: PingFangSC-Medium, #4D535D, 16px, 22px, 0;
           @include set-font($font...);
           height: 44px;
+          @include ellipsis(2);
           @media (max-width: 768px) {
             height: auto;
           }
@@ -507,6 +595,7 @@ $nav-active-color: #0080FF;
 }
 
 .g-footer {
+  position: relative;
   padding: 0 120px;
   padding-top: 267px;
   width: 100%;
@@ -521,6 +610,24 @@ $nav-active-color: #0080FF;
     margin-top: 50px;
     @include flex();
     @include alignItems(center);
+  }
+  .u-brand {
+    width: 500px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -250px;
+    $font: PingFangSC-Medium, #3E3E3E, 12px, 17px, 0;
+    @include set-font($font...);
+    opacity: 0.3;
+    text-align: center;
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 0 20px;
+      bottom: 10px;
+      left: auto;
+      margin-left: auto;
+    }
   }
   .g-foot-content {
     @include flex();
