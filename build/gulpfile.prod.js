@@ -78,7 +78,7 @@ function prod() {
 
     gulp.task('js', function () {
         return gulp.src([Config.js.src])
-            // .pipe(sourcemaps.init()) // 执行sourcemaps
+        // .pipe(sourcemaps.init()) // 执行sourcemaps
             .pipe(babel({
                 presets: [es2015]
             }))
@@ -102,12 +102,12 @@ function prod() {
      */
     gulp.task('vendor', function () {
         return gulp.src([Config.vendor.src])
-            // .pipe(sourcemaps.init()) // 执行sourcemaps
-            // .pipe(babel({
-            //     presets: [es2015]
-            // }))
-            // .pipe(jshint('.jshintrc'))
-            // .pipe(jshint.reporter('default'))
+        // .pipe(sourcemaps.init()) // 执行sourcemaps
+        // .pipe(babel({
+        //     presets: [es2015]
+        // }))
+        // .pipe(jshint('.jshintrc'))
+        // .pipe(jshint.reporter('default'))
             .pipe(rename({
                 suffix: '.min'
             }))
@@ -129,8 +129,8 @@ function prod() {
             .pipe(babel({
                 presets: [es2015]
             }))
-            // .pipe(jshint('.jshintrc'))
-            // .pipe(jshint.reporter('default'))
+            .pipe(jshint('.jshintrc'))
+            .pipe(jshint.reporter('default'))
             .pipe(uglify())
             .pipe(rename({
                 suffix: '.min'
@@ -156,6 +156,22 @@ function prod() {
             // .pipe(rev())
             .pipe(gulp.dest(Config.img.dist));
     });
-    gulp.task('build', ['html', 'css', 'sass', 'assets', 'images', 'js', 'vendor', 'js-concat']);
+    /**
+     * 图片处理
+     */
+    gulp.task('ckPlayer', function () {
+        return gulp.src(Config.ckPlayer.src)
+            .pipe(changed(Config.ckPlayer.dist)) // 对比文件是否有过改动（此处填写的路径和输出路径保持一致）
+            .pipe(gulp.dest(Config.ckPlayer.dist));
+    });
+    /**
+     * 图片处理
+     */
+    gulp.task('webGl', function () {
+        return gulp.src(Config.webGl.src)
+            .pipe(changed(Config.webGl.dist)) // 对比文件是否有过改动（此处填写的路径和输出路径保持一致）
+            .pipe(gulp.dest(Config.webGl.dist));
+    });
+    gulp.task('build', ['html', 'css', 'sass', 'assets', 'images', 'js', 'vendor', 'js-concat', 'ckPlayer', 'webGl']);
 }
 module.exports = prod;

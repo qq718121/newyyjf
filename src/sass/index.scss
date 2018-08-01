@@ -21,29 +21,50 @@ $nav-link-color: #fff;
 $nav-active-bg: #fff;
 $nav-active-color: #0080FF;
 //样式
-.navbar-dark .navbar-nav .nav-link {
-  color: $navColor;
-  font-family: PingFangSC-Medium;
-  font-size: 16px;
-  &:hover {
-    color: $navColor;
-  }
-  &:active {
-    color: $navColor;
-  }
-}
+//.navbar-dark .navbar-nav .nav-link {
+//  color: $navColor;
+//  font-family: PingFangSC-Medium;
+//  font-size: 16px;
+//  &:hover {
+//    color: $navColor;
+//  }
+//  &:active {
+//    color: $navColor;
+//  }
+//}
 
 .u-hide-phone {
   display: none;
+}
+
+.bg-light {
+  background: none !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  @include nav-style-taggle($nav-active-bg, $nav-active-color);
 }
 
 .nav-link-style {
   @include nav-style-taggle($nav-link-bg, $nav-link-color);
 }
 
-.nav-active-style {
-  @include nav-style-taggle($nav-active-bg, $nav-active-color);
-}
+//
+//.nav-active-style {
+//  @include nav-style-taggle($nav-active-bg, $nav-active-color);
+//}
+//
+//.nav-link-scrool {
+//  @include nav-style-taggle($nav-link-bg, #8B949E);
+//}
+//
+//.nav-active-scrool {
+//  @include nav-style-taggle('', $nav-active-color);
+//  border-bottom: 3px solid #0080FF !important;
+//  border-radius: 0 !important;
+//  padding-left: 0 !important;
+//  padding-right: 0 !important;
+//}
 
 .container {
   @media (max-width: 996px) {
@@ -53,8 +74,10 @@ $nav-active-color: #0080FF;
 
 .m-container {
   position: relative;
-  max-width: 1960px;
+  //margin-top: $g-nav-padding-height;
+  //max-width: 1960px;
   width: $container-width;
+  overflow: hidden;
   @media (max-width: 768px) {
     padding-top: 59px;
   }
@@ -86,8 +109,8 @@ $nav-active-color: #0080FF;
     }
     .u-bg-circle2 {
       position: absolute;
-      margin-bottom: returnWidth($u-bg-circle2-bottom);
-      bottom: 0;
+      //margin-bottom: returnHeight($u-bg-circle2-bottom);
+      bottom: returnHeight($u-bg-circle2-bottom);
       left: 0;
       max-width: $u-bg-circle2-width;
       width: returnWidth($u-bg-circle2-width);
@@ -98,13 +121,15 @@ $nav-active-color: #0080FF;
       }
     }
   }
-  .main-body {
-    position: relative;
-    z-index: 1;
-    width: $container-width;
-    height: $container-width;
-    .g-nav-container {
 
+  .g-nav-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+
+    .g-nav-container {
       @media (max-width: 768px) {
         padding: 0;
         background: #fff;
@@ -125,14 +150,18 @@ $nav-active-color: #0080FF;
         height: 44px;
         line-height: 55px;
         text-align: left;
-        background: url('../images/logo_write.png') no-repeat center;
+        background: url('../images/bailogo.png');
         background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
         @media (max-width: 970px) {
           margin-left: 30px;
         }
         @media (max-width: 768px) {
+          width: $u-logo-width/1.5;
+          height: 30px;
           margin-left: 20px;
-          background: url('../images/hblogo.png') no-repeat center;
+          background: url('../images/heilogo.png');
           background-size: 100% 100%;
         }
       }
@@ -156,6 +185,8 @@ $nav-active-color: #0080FF;
       .u-nav-list {
         @media (max-width: 768px) {
           height: 100vh;
+          display: block;
+          width: 100%;
         }
         li {
           position: relative;
@@ -163,7 +194,7 @@ $nav-active-color: #0080FF;
           @media (max-width: 768px) {
             margin-left: 0;
             width: 100%;
-            padding: 20px 0;
+            padding: 10px 0;
           }
           a {
             padding: 4px 20px;
@@ -182,18 +213,37 @@ $nav-active-color: #0080FF;
             &:active {
               color: rgb(255, 255, 255);
             }
-
           }
           @media (max-width: 768px) {
-            .nav-link-style {
-              $font: PingFangSC-Medium, #B9C0C8, 24px, 48px, 0;
-              @include set-font($font...);
-            }
-            .nav-active-style {
-              font-size: 24px;
-              line-height: 48px;
+            a {
+              padding: 4px 20px;
+              border-radius: 32px;
+              text-align: center;
+
+              &:link {
+                color: #B9C0C8;
+              }
+              &:visited {
+                color: #B9C0C8;
+              }
+              &:hover {
+                color: #B9C0C8;
+              }
+              &:active {
+                color: #B9C0C8;
+              }
             }
           }
+          //@media (max-width: 768px) {
+          //  .nav-link-style {
+          //    $font: PingFangSC-Medium, #B9C0C8, 24px, 48px, 0;
+          //    @include set-font($font...);
+          //  }
+          //  .nav-active-style {
+          //    font-size: 24px;
+          //    line-height: 48px;
+          //  }
+          //}
         }
       }
       .u-rq-code {
@@ -213,19 +263,28 @@ $nav-active-color: #0080FF;
         }
       }
     }
+  }
+
+  .main-body {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: $container-width;
+    height: $container-width;
+    padding-top: $g-nav-padding-height;
+    @media (max-width: 768px) {
+      padding-top: 0;
+    }
     .g-title-content {
       margin-top: returnWidth(168px);
-      // margin-left: returnWidth(170px);
-      // width: returnWidth(532px);
       width: 100%;
-
       @include hidePc();
 
       h1 {
         $font: PingFangSC-Medium, #fff, 48px, 60px, 3.1;
         @include set-font($font...);
         @media (max-width: 768px) {
-          font-size: 40px !important;
+          font-size: 48px !important;
         }
       }
       p {
@@ -233,7 +292,8 @@ $nav-active-color: #0080FF;
         @include set-font($font...);
         margin-top: returnWidth(30px);
         @media (max-width: 768px) {
-          font-size: 14px !important;
+          $font: PingFangSC-Medium, #fff, 18px, 24px, 3.1;
+          @include set-font($font...);
         }
       }
       .u-load-btn {
@@ -269,14 +329,18 @@ $nav-active-color: #0080FF;
       .card-content {
         padding-left: 0;
         padding-bottom: 0;
+        @media (max-width: 768px) {
+          padding-right: 0;
+        }
       }
       .card-title-h5 {
-        $font: PingFangSC-Medium, #4D535D, 20px, 40px, 3.1;
+        $font: PingFangSC-Medium, #212832, 20px, 40px, 3.1;
         @include set-font($font...);
       }
       .card-title-p {
-        $font: PingFangSC-Medium, #8B949E, 16px, 25px, 0;
+        $font: PingFangSC-Regular, #808D9B, 16px, 25px, 0;
         @include set-font($font...);
+
       }
     }
     .u-tit-h1 {
@@ -332,24 +396,26 @@ $nav-active-color: #0080FF;
           border: none;
           background: none;
           @media (max-width: 768px) {
-            width: 164px !important;
+            width: 50% !important;
           }
-
+          @media (max-width: 350px) {
+            width: 100% !important;
+          }
           h5 {
-            $font: PingFangSC-Medium, #3E3E3E, 16px, 22px, 0;
+            $font: PingFangSC-Medium, #212832, 16px, 22px, 0;
             @include set-font($font...);
             @media (max-width: 768px) {
-              font-size: 14px !important;
+              font-size: 18px !important;
             }
           }
-          p {
-            $font: PingFangSC-Medium, #4D535D, 14px, 22px, 0;
+          pre {
+            $font: PingFangSC-Regular, #808D9B, 14px, 22px, 0;
             @include set-font($font...);
             @media (max-width: 768px) {
               font-size: 12px !important;
             }
             @media (max-width: 468px) {
-              font-size: 10px !important;
+              font-size: 12px !important;
             }
           }
 
@@ -365,8 +431,11 @@ $nav-active-color: #0080FF;
       width: returnWidth(950px, 1110px);
       height: returnHeight(715px);
       margin: returnWidth(142px) auto 0;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
       .u-monitor-server-animation {
-        //     margin-top: returnWidth(30px,950px);
+
       }
       .u-phone {
 
@@ -417,12 +486,15 @@ $nav-active-color: #0080FF;
           border: none;
           text-align: left;
           box-shadow: 0px 3px 33px 0px rgba(59, 127, 194, 0.21);
-          @include transTion(all, 0.4s);
+          @include transTion(all, 0.2s);
           &:hover {
             @include transForm(scale(1.1) translateZ(0));
             -webkit-backface-visibility: hidden;
             position: relative;
             z-index: 999;
+          }
+          @media (max-width: 768px) {
+            padding: 20px 15px;
           }
           .card-body {
             padding: 0;
@@ -435,18 +507,18 @@ $nav-active-color: #0080FF;
             }
           }
           h5 {
-            $font: PingFangSC-Medium, #3E3E3E, 16px, 16px, 0;
+            $font: PingFangSC-Medium, #212832, 16px, 16px, 1.2px;
             @include set-font($font...);
             @media (max-width: 768px) {
-              $font: PingFangSC-Medium, #3E3E3E, 14px, 18px, 0;
+              $font: PingFangSC-Medium, #212832, 18px, 18px, 0;
               @include set-font($font...);
             }
           }
-          p {
-            $font: PingFangSC-Medium, #999999, 16px, 22px, 0;
+          pre {
+            $font: PingFangSC-Regular, #808D9B, 14px, 22px, 1.3px;
             @include set-font($font...);
             @media (max-width: 768px) {
-              $font: PingFangSC-Medium, #999999, 10px, 18px, 0;
+              $font: PingFangSC-Regular, #808D9B, 12px, 18px, 0;
               @include set-font($font...);
             }
           }
@@ -462,6 +534,12 @@ $nav-active-color: #0080FF;
       @media (max-width: 768px) {
         height: auto;
         padding: 30px 0;
+      }
+      .carousel-indicators {
+        bottom: 40px;
+        @media (max-width: 768px) {
+          bottom: -10px;
+        }
       }
       .carousel-indicators li {
         width: 10px;
@@ -481,13 +559,15 @@ $nav-active-color: #0080FF;
             height: 100%;
             background: #F7FAFF;
             .g-banner-item-inner {
-              padding: 100px 173px 100px 188px;
+              padding: 100px 0 100px 18px;
+              max-width: 1140px;
+              margin: auto;
               @media (max-width: 768px) {
-                padding: 0;
+                padding: 15px 0;
                 display: flex;
                 flex-direction: column;
                 margin: auto;
-                width: 70%;
+                width: 80%;
               }
               @include flex();
               @include justContent(space-around);
@@ -535,36 +615,44 @@ $nav-active-color: #0080FF;
                   @include set-font($font...);
                 }
                 p {
-                  height: 48px;
+                  //height: 48px;
                   margin-top: 10px;
-                  $font: PingFangSC-Regular, #4D535D, 14px, 24px, 0;
+                  $font: PingFangSC-Regular, #808D9B, 14px, 24px, 1.3px;
                   @include set-font($font...);
-                  @include ellipsis(2);
+                  @include ellipsis(3);
+                  text-align: justify;
+                  @media (max-width: 768px) {
+                    height: auto;
+                    $font: PingFangSC-Regular, #808D9B, 14px, 20px, 0;
+                    @include set-font($font...);
+                    @include ellipsis(15);
+                  }
                 }
               }
             }
           }
         }
       }
-
     }
+
     .g-firm-state {
       margin-top: 71px;
       .g-firm-state-item {
         margin-top: 30px;
-
+        @media (max-width: 768px) {
+          margin: 15px 10px;
+        }
         @include justContent(space-around);
         .g-firm-state-item-li {
           padding: 23px 26px 21px 18px;
           max-width: 541px !important;
           background: #F7FAFF;
           margin-top: 20px;
-          //@media (max-width: 768px) {
-          //  height: 215px;
-          //}
+
         }
         p {
-          $font: PingFangSC-Medium, #4D535D, 16px, 22px, 0;
+          $font: PingFangSC-Regular, #808D9B, 16px, 22px, 1.3px;
+          //font-weight: 300 !important;
           @include set-font($font...);
           height: 44px;
           @include ellipsis(2);
@@ -575,8 +663,9 @@ $nav-active-color: #0080FF;
         .u-firm-state-date {
           margin-top: 10px;
           span {
-            $font: PingFangSC-Medium, #3E3E3E, 13px, 18px, 0;
+            $font: PingFangSC-Regular, #3E3E3E, 13px, 18px, 0;
             @include set-font($font...);
+            opacity: 0.5;
           }
           .icon1 {
             float: left;
@@ -585,6 +674,7 @@ $nav-active-color: #0080FF;
             float: right;
           }
         }
+
       }
     }
   }
@@ -611,6 +701,7 @@ $nav-active-color: #0080FF;
     @include flex();
     @include alignItems(center);
   }
+
   .u-brand {
     width: 500px;
     position: absolute;
@@ -629,6 +720,7 @@ $nav-active-color: #0080FF;
       margin-left: auto;
     }
   }
+
   .g-foot-content {
     @include flex();
     @include justContent(space-between);
@@ -662,7 +754,7 @@ $nav-active-color: #0080FF;
         @include set-font($font...);
       }
       p {
-        $font: PingFangSC-Medium, #8B949E, 14px, 20px, 0;
+        $font: PingFangSC-Medium, #8B949E, 14px, 20px, 1.3px;
         @include set-font($font...);
       }
     }

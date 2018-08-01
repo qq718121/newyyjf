@@ -2,15 +2,15 @@
  * Created by lenovo on 2018/7/26.
  */
 var flashvars = {
-    f: 'http://211.161.125.134/69742B60AD5358221F402E2DA3/03000A01005B30D2ED49D8805C1B1D4B5FCCA5-F14F-4849-82B6-8C21C4DB9153.mp4?ccode=0502&duration=112&expire=18000&psid=266ea6337588e421f8fcc16badce6c6c&sp=&ups_client_netip=79451ff2&ups_ts=1532425171&ups_userid=&utid=J8W4E6ba3WECAXlFH%2FJ2yP08&vid=XMzY4NjAyNTE5Ng%3D%3D&vkey=B906b549f7c822a8e20ca8d7c8fe084ec',//视频地址
+    f: 'http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4',//视频地址
     a: '',//调用时的参数，只有当s>0的时候有效
     s: '0',//调用方式，0=普通方法（f=视频地址），1=网址形式,2=xml形式，3=swf形式(s>0时f=网址，配合a来完成对地址的组装)
     c: '0',//是否读取文本配置,0不是，1是
     x: '',//调用配置文件路径，只有在c=1时使用。默认为空调用的是ckplayer.xml
     i: 'http://www.ckplayer.com/static/images/cqdw.jpg',//初始图片地址
-    d: 'http://www.ckplayer.com/down/pause6.1_1.swf|http://www.ckplayer.com/down/pause6.1_2.swf',//暂停时播放的广告，swf/图片,多个用竖线隔开，图片要加链接地址，没有的时候留空就行
+    // d: 'http://www.ckplayer.com/down/pause6.1_1.swf|http://www.ckplayer.com/down/pause6.1_2.swf',//暂停时播放的广告，swf/图片,多个用竖线隔开，图片要加链接地址，没有的时候留空就行
     u: '',//暂停时如果是图片的话，加个链接地址
-    l: 'http://www.ckplayer.com/down/adv6.1_1.swf|http://www.ckplayer.com/down/adv6.1_2.swf',//前置广告，swf/图片/视频，多个用竖线隔开，图片和视频要加链接地址
+    // l: 'http://www.ckplayer.com/down/adv6.1_1.swf|http://www.ckplayer.com/down/adv6.1_2.swf',//前置广告，swf/图片/视频，多个用竖线隔开，图片和视频要加链接地址
     r: '',//前置广告的链接地址，多个用竖线隔开，没有的留空
     t: '10|10',//视频开始前播放swf/图片时的时间，多个用竖线隔开
     y: '',//这里是使用网址形式调用广告地址时使用，前提是要设置l的值为空
@@ -38,4 +38,12 @@ var flashvars = {
 };
 var params = {bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always'};//这里定义播放器的其它参数如背景色（跟flashvars中的b不同），是否支持全屏，是否支持交互
 var video = ['http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4'];
-CKobject.embed('ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', false, flashvars, video, params);
+CKobject.embed('../ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', false, flashvars, video, params);
+// function loadedHandler() {
+//     if (CKobject.getObjectById('ckplayer_a1').getType()) {//说明使用html5播放器
+//         alert('播放器已加载，调用的是HTML5播放模块');
+//     }
+//     else {
+//         alert('播放器已加载，调用的是Flash播放模块');
+//     }
+// }

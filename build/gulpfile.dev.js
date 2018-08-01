@@ -102,6 +102,26 @@ function dev() {
             }));
     });
     /**
+     * 合并所有js文件并做压缩处理
+     */
+    gulp.task('js-concat:dev', function () {
+        return gulp.src(Config.js.src)
+            .pipe(concat(Config.js.build_name))
+            .pipe(babel({
+                presets: [es2015]
+            }))
+            .pipe(jshint('.jshintrc'))
+            .pipe(jshint.reporter('default'))
+            .pipe(uglify())
+            .pipe(rename({
+                suffix: '.min'
+            }))
+            // .pipe(rev())
+            .pipe(gulp.dest(Config.js.dist));
+
+        // gp.src(['1.js', '2.js']).pipe(concat('main.js')).pipe(uglify()).pipe(gp.dest('./dest/js'));
+    });
+    /**
      * vendor处理
      */
     gulp.task('vendor:dev', function () {
@@ -134,7 +154,7 @@ function dev() {
                 stream: true
             }));
     });
-    gulp.task('dev', ['html:dev', 'css:dev', 'sass:dev', 'js:dev', 'assets:dev', 'images:dev'], function () {
+    gulp.task('dev', ['html:dev', 'css:dev', 'sass:dev', 'js:dev', 'js-concat:dev', 'assets:dev', 'images:dev'], function () {
         browserSync.init({
             server: {
                 baseDir: Config.dist
@@ -149,12 +169,15 @@ function dev() {
         gulp.watch(Config.sass.src, ['sass:dev']);
         // Watch assets files
         gulp.watch(Config.assets.src, ['assets:dev']);
+        //Watch vendor files
+        gulp.watch(Config.vendor.src, ['vendor:dev']);
+        // Watch .js files
+        gulp.watch(Config.js.src, ['js-concat:dev']);
         // Watch .js files
         gulp.watch(Config.js.src, ['js:dev']);
         // Watch image files
         gulp.watch(Config.img.src, ['images:dev']);
-        //Watch vendor files
-        gulp.watch(Config.vendor.src, ['vendor:dev']);
+
     });
 }
 //======= gulp dev 开发环境下 ===============

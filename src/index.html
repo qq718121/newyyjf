@@ -9,24 +9,30 @@
     <!--WebApp全屏模式   隐藏地址栏-->
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=no">
     <!--<meta name="viewport"-->
     <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
     <title>鹰眼鉴房，理性决策，质选优房</title>
     <meta name="keywords" content="鹰眼鉴房，鹰眼，新房，二手房，房产质量，房产数据服务平台，专注楼盘质量，房产大数据"/>
     <meta name="description" content="鹰眼鉴房，国内首家专注于楼盘质量的房产数据信息服务平台，在全方位房产质量大数据支持下，协助更多购房人更加轻松、便捷地甄选优质房产。"/>
     <meta id='rem' name="copyright" content="北京买家帮网络信息有限公司">
-    <link rel="bookmark" type="image/x-icon" href="favicon.ico"/>
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css">
+    <!--<link rel="bookmark" type="image/x-icon" href="images/favicon.ico"/>-->
+    <!--<link rel="shortcut icon" href="images/favicon.ico">-->
+    <!--<link rel="icon" href="images/favicon.ico">-->
+    <!--<link rel="shortcut icon" href="images/favicon.ico" />-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/build.min.css">
+    <!--<link rel="stylesheet" href="webGl/TemplateData/style.css">-->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
-<div class="container-fluid m-container" style="overflow: scroll" data-spy="scroll" data-target="#navbar-example2"
-     data-offset="0">
-    <div class="g-bg" id="homes">
+<body style="height: auto;overflow: hidden">
+<!--<div id="webGl" style="width: 100%;height: 100vh">-->
+
+<!--</div>-->
+<div class="container-fluid m-container">
+    <div class="g-bg">
         <div class="u-bg-title u-hide-phone">
             <img src="./images/yidongduan_banner@2x.png" style="width: 100%" alt="">
         </div>
@@ -40,41 +46,40 @@
             <img src="./images/2@3x.png" class="img-fluid" alt="">
         </div>
     </div>
-    <div class="main-body scrollspy-example" data-spy="scroll" data-target="#collapsibleNavbar"
-         data-offset="0">
+
+    <div class="g-nav-link">
         <div class="container g-nav-container">
-            <nav class="navbar navbar-expand-md navbar-dark g-nav">
-                  <span class="u-logo">
-                        <!--<img src="./images/logo_write.png" class="img-fluid" alt="">-->
-                  </span>
-                <button class="navbar-toggler g-nav-btn" type="button" data-toggle="collapse"
-                        data-target="#collapsibleNavbar">
-                    <!-- <span class="navbar-toggler-icon"></span> -->
-                    <span class="u-navbar-toggler">
-                              <img src="./images/menu@3x.png" alt="">
-                        </span>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light g-nav">
+                <span class="u-logo"></span>
+                <button class="navbar-toggler g-nav-btn" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="u-navbar-toggler"><img src="./images/menu@3x.png" alt=""></span>
                 </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav u-nav-list">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#homes">首页</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#server">产品服务</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#newscenter">新闻资讯</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#download">下载</a>
-                            <div class="u-rq-code">
-                                <img src="./images/Group@3x.png" class="img-fluid" alt="">
-                            </div>
-                        </li>
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <nav id="collapsibleNavbar" class="navbar navbar-light bg-light navbar-fixed-top">
+                        <ul class="nav nav-pills u-nav-list">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#homes">首页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#server">产品服务</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#newscenter">新闻资讯</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#download">下载</a>
+                                <div class="u-rq-code">
+                                    <img src="./images/Group@3x.png" class="img-fluid" alt="">
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </nav>
         </div>
+    </div>
+    <div class="main-body" id="homes">
         <div class="container g-title-content">
             <h1 class="u-hide-pc">您身边的房屋质量专家</h1>
             <div class="u-hide-phone">
@@ -89,21 +94,21 @@
         <div class="container g-img-content-list">
             <div class="card-deck">
                 <div class="card card-img">
-                    <img class="card-img-top" class="img-fluid" src="./images/1img@3x.png" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="./images/1img@3x.png" alt="Card image cap">
                     <div class="card-body card-content">
                         <h5 class="card-title card-title-h5">720° 全景航拍实景还原</h5>
                         <p class="card-text card-title-p">室外无人机航拍全景楼盘进度，实景视频展示建筑实况</p>
                     </div>
                 </div>
                 <div class="card card-img card-img2">
-                    <img class="card-img-top" class="img-fluid" src="./images/2img@3x.png" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="./images/2img@3x.png" alt="Card image cap">
                     <div class="card-body card-content">
                         <h5 class="card-title card-title-h5">过程进度全把握</h5>
                         <p class="card-text card-title-p">实景跟进楼盘整改进度，厘米级精准还原室内空间</p>
                     </div>
                 </div>
                 <div class="card card-img">
-                    <img class="card-img-top" class="img-fluid" src="./images/3img@3x.png" alt="Card image cap">
+                    <img class="card-img-top img-fluid" src="./images/3img@3x.png" alt="Card image cap">
                     <div class="card-body card-content">
                         <h5 class="card-title card-title-h5">施工质量全透明</h5>
                         <p class="card-text card-title-p">定期更新实际建筑进度，可追踪千余项工程质量监控点</p>
@@ -124,49 +129,49 @@
             <div class="card-deck g-artifact-deck">
                 <div class="card text-center u-artifact-li" style="width: 200px">
                     <div class="u-artifact-img">
-                        <img class="card-img-top" class="img-fluid" src="./images//icon_gongzhengtouming@3x.png"
+                        <img class="card-img-top img-fluid" src="./images//icon_gongzhengtouming@3x.png"
                              alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">覆盖全国近千楼盘</h5>
-                        <p class="card-text">已服务全国多个一二线城市</p>
-                        <p> 为数万名业主提供服务</p>
+                        <pre class="card-text">已服务全国多个一二线城市</pre>
+                        <pre> 为数万名业主提供服务</pre>
                     </div>
                 </div>
                 <div class="card text-center u-artifact-li">
                     <div class="u-artifact-img">
-                        <img class="card-img-top" class="img-fluid" src="./images/icon_gongzhengtouming copy 6@3x.png"
+                        <img class="card-img-top img-fluid"
+                             src="./images/icon_gongzhengtouming copy 6@3x.png"
                              alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">便捷自助验房</h5>
-                        <p class="card-text">量化验房检查项
-                        </p>
-                        <p>自助操作标准验收流程</p>
+                        <pre class="card-text">量化验房检查项</pre>
+                        <pre>自助操作标准验收流程</pre>
                     </div>
                 </div>
                 <div class="card text-center u-artifact-li">
                     <div class="u-artifact-img">
-                        <img class="card-img-top" class="img-fluid" src="./images//Group 13@3x.png"
+                        <img class="card-img-top img-fluid" src="./images//Group 13@3x.png"
                              alt="Card image cap">
                     </div>
 
                     <div class="card-body">
                         <h5 class="card-title">业主圈在线交流</h5>
-                        <p class="card-text">楼盘真实业主</p>
-                        <p>质量疑问在线交流</p>
+                        <pre class="card-text">楼盘真实业主</pre>
+                        <pre>质量疑问在线交流</pre>
                     </div>
 
                 </div>
                 <div class="card text-center u-artifact-li">
                     <div class="u-artifact-img">
-                        <img class="card-img-top" class="img-fluid" src="./images//Group 34@3x.png"
+                        <img class="card-img-top img-fluid" src="./images//Group 34@3x.png"
                              alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">实用房屋资讯</h5>
-                        <p class="card-text">买房前后必备知识</p>
-                        <p id="server">实用干货一网打尽</p>
+                        <pre class="card-text">买房前后必备知识</pre>
+                        <pre id="server">实用干货一网打尽</pre>
                     </div>
                 </div>
             </div>
@@ -185,49 +190,49 @@
                         <!-- <div class="u-monitor-server-li"></div> -->
                         <div class="card u-monitor-server-li">
                             <div class="u-monitor-server-img">
-                                <img class="card-img-top" class="img-fluid" src="./images/hp@3x.png"
+                                <img class="card-img-top img-fluid" src="./images/hp@3x.png"
                                      alt="Card image cap">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">航拍工程进度</h5>
-                                <p class="card-text">室外无人机航拍全景楼盘进度</p>
-                                <p>足不出户即可查看楼盘详情</p>
+                                <pre class="card-text">室外无人机航拍全景楼盘进度</pre>
+                                <pre>足不出户即可查看楼盘详情</pre>
                             </div>
 
                         </div>
                         <div class="card u-monitor-server-li">
                             <div class="u-monitor-server-img">
-                                <img class="card-img-top" class="img-fluid" src="./images/fwzl@3x.png"
+                                <img class="card-img-top img-fluid" src="./images/fwzl@3x.png"
                                      alt="Card image cap">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">直观展示房屋质量</h5>
-                                <p class="card-text">建造过程直观展示</p>
-                                <p>房屋整改记录清晰可见</p>
+                                <pre class="card-text">建造过程直观展示</pre>
+                                <pre>房屋整改记录清晰可见</pre>
                             </div>
 
                         </div>
                         <div class="card u-monitor-server-li">
                             <div class="u-monitor-server-img">
-                                <img class="card-img-top" class="img-fluid" src="./images/snkj@3x.png"
+                                <img class="card-img-top img-fluid" src="./images/snkj@3x.png"
                                      alt="Card image cap">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">还原室内空间</h5>
-                                <p class="card-text">1:1真实呈现房屋进度</p>
-                                <p>厘米级精准还原室内实景</p>
+                                <pre class="card-text">1:1真实呈现房屋进度</pre>
+                                <pre>厘米级精准还原室内实景</pre>
                             </div>
 
                         </div>
                         <div class="card u-monitor-server-li">
                             <div class="u-monitor-server-img">
-                                <img class="card-img-top" class="img-fluid" src="./images/jzdh@3x.png"
+                                <img class="card-img-top img-fluid" src="./images/jzdh@3x.png"
                                      alt="Card image cap">
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">精准到户</h5>
-                                <p class="card-text">绑定所购房屋</p>
-                                <p>提供精准房产质量监控信息</p>
+                                <pre class="card-text">绑定所购房屋</pre>
+                                <pre>提供精准房产质量监控信息</pre>
                             </div>
                         </div>
                     </div>
@@ -235,7 +240,8 @@
             </div>
         </div>
         <div class="container g-sir-banner">
-            <div id="carouselExampleIndicators" class="carousel slide g-carouselExampleIndicators" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide g-carouselExampleIndicators"
+                 data-ride="carousel">
                 <ol class="carousel-indicators" id="newscenter">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -244,7 +250,8 @@
                 <div class="carousel-inner g-carousel-inner">
                     <div class="carousel-item active g-banner-item">
                         <div class="g-banner-item-inner clearfix">
-                            <div class="g-banner-item-inner-img"><img style="width: 100%" src="./images/zhao2@3x.png"
+                            <div class="g-banner-item-inner-img"><img style="width: 100%"
+                                                                      src="./images/zhao2@3x.png"
                                                                       alt=""></div>
                             <div class="g-banner-item-inner-text">
                                 <h2>赵先生</h2>
@@ -356,16 +363,23 @@
         </footer>
     </div>
 </div>
-
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./vendor/ckplayer.min.js"></script>
 <!--<script src="./js/nav.min.js"></script>-->
 <!--<script src="./js/video.min.js"></script>-->
 <script src="./js/build.min.js"></script>
+<!--测试WEBGL-->
+<!--<script src="webGl/TemplateData/UnityProgress.js"></script>-->
+<!--<script src="webGl/Build/UnityLoader.js"></script>-->
+
 <script>
 
     $(function () {
+//        $('#webGl').load('./webGl/index.html', function () {
+//            alert('加载完成');
+//        })
+        $('body').scrollspy({target: '#collapsibleNavbar'});
         $('.carousel').carousel({
             interval: 3000,
         });

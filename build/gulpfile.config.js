@@ -43,6 +43,16 @@ let Config = {
         dir: SRC_DIR + 'images',
         src: SRC_DIR + 'images/**/*', // images目录：./src/images/
         dist: DIST_DIR + 'images' // images文件build后存放的目录：./dist/images
+    },
+    ckPlayer: {
+        dir: SRC_DIR + 'ckplayer',
+        src: SRC_DIR + 'ckplayer/**', // images目录：./src/images/
+        dist: DIST_DIR + 'ckplayer' // images文件build后存放的目录：./dist/images
+    },
+    webGl: {
+        dir: SRC_DIR + 'webGl',
+        src: SRC_DIR + 'webGl/**', // images目录：./src/images/
+        dist: DIST_DIR + 'webGl' // images文件build后存放的目录：./dist/images
     }
 };
 
