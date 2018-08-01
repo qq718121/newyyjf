@@ -72,6 +72,45 @@ $nav-active-color: #0080FF;
   }
 }
 
+.preventTran {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #2e2e2e;
+  text-align: center;
+  z-index: 99999;
+  display: none;
+}
+
+.img_preventTran {
+  width: 10%;
+  margin: 0 auto 20px;
+}
+
+.img_preventTran img {
+  width: 100%;
+}
+
+.child_preventTran {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+}
+
+.preventTran p {
+  color: #626262;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
 .m-container {
   position: relative;
   //margin-top: $g-nav-padding-height;
@@ -538,7 +577,7 @@ $nav-active-color: #0080FF;
       .carousel-indicators {
         bottom: 40px;
         @media (max-width: 768px) {
-          bottom: -10px;
+          bottom: -10px !important;
         }
       }
       .carousel-indicators li {
@@ -597,6 +636,7 @@ $nav-active-color: #0080FF;
                 @media (max-width: 768px) {
                   width: 100%;
                   padding-bottom: 40px;
+                  height: 250px;
                 }
                 //height: returnHeight(195px, 195px);
                 h2 {
@@ -741,7 +781,7 @@ $nav-active-color: #0080FF;
       .telme-qr {
         width: 100px;
         height: 100px;
-        background: url("../images/Group@3x.png");
+        background: url("../images/qr.png");
         background-size: cover;
         margin-right: 10px;
         @media (max-width: 768px) {
@@ -750,12 +790,18 @@ $nav-active-color: #0080FF;
         }
       }
       h3 {
-        $font: PingFangSC-Medium, #3E3E3E, 16px, 22px, 0;
+        $font: PingFangSC-Medium, #3E3E3E, 16px, 30px, 0;
         @include set-font($font...);
+        @media (max-width: 768px) {
+          line-height: 20px;
+        }
       }
       p {
-        $font: PingFangSC-Medium, #8B949E, 14px, 20px, 1.3px;
+        $font: PingFangSC-Medium, #8B949E, 14px, 30px, 1.3px;
         @include set-font($font...);
+        @media (max-width: 768px) {
+          line-height: 20px;
+        }
       }
     }
   }

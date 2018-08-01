@@ -65,8 +65,6 @@ var logo_img_active = {
 
 px2rem();
 getList();
-$("[href='#homes']").click();
-
 
 function px2rem() {
     var e = navigator.userAgent.toLowerCase(),
@@ -79,6 +77,22 @@ function px2rem() {
         r = "windows ce" == e.match(/windows ce/i),
         o = "windows mobile" == e.match(/windows mobile/i);
     (!t && !i && !c && !a && !m && !n && !r && !o) && f_screen();
+    (t || i || c || a || m || n || r || o) && rotate();
+}
+
+function rotate() {
+
+    var orientation = window.orientation;
+    if (orientation == 90 || orientation == -90) {
+        $('.preventTran').css('display', 'block');
+        $('.g-nav-link').css('display', 'none');
+    } else {
+        $('.g-nav-link').css('display', 'block');
+    }
+    window.onorientationchange = function () {
+        $('.preventTran').css('display', 'none');
+        rotate();
+    };
 }
 
 function f_screen() {
