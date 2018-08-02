@@ -2,7 +2,7 @@
  * Created by lenovo on 2018/7/26.
  */
 var flashvars = {
-    f: 'http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4',//视频地址
+    f: 'http://47.95.233.255:9301/mp4/yyjf_gq.mp4',//视频地址
     a: '',//调用时的参数，只有当s>0的时候有效
     s: '0',//调用方式，0=普通方法（f=视频地址），1=网址形式,2=xml形式，3=swf形式(s>0时f=网址，配合a来完成对地址的组装)
     c: '0',//是否读取文本配置,0不是，1是
@@ -14,7 +14,7 @@ var flashvars = {
     r: '',//前置广告的链接地址，多个用竖线隔开，没有的留空
     t: '10|10',//视频开始前播放swf/图片时的时间，多个用竖线隔开
     y: '',//这里是使用网址形式调用广告地址时使用，前提是要设置l的值为空
-    z: 'http://www.ckplayer.com/down/buffer.swf',//缓冲广告，只能放一个，swf格式
+    // z: 'http://www.ckplayer.com/down/buffer.swf',//缓冲广告，只能放一个，swf格式
     e: '8',//视频结束后的动作，0是调用js函数，1是循环播放，2是暂停播放并且不调用广告，3是调用视频推荐列表的插件，4是清除视频流并调用js功能和1差不多，5是暂停播放并且调用暂停广告
     v: '80',//默认音量，0-100之间
     p: '0',//视频默认0是暂停，1是播放，2是不加载视频
@@ -27,7 +27,7 @@ var flashvars = {
     j: '',//跳过片尾功能，j>0则从播放多少时间后跳到结束，<0则总总时间-该值的绝对值时跳到结束
     k: '32|63',//提示点时间，如 30|60鼠标经过进度栏30秒，60秒会提示n指定的相应的文字
     n: '这是提示点的功能，如果不需要删除k和n的值|提示点测试60秒',//提示点文字，跟k配合使用，如 提示点1|提示点2
-    wh: '',//宽高比，可以自己定义视频的宽高或宽高比如：wh:'4:3',或wh:'1080:720'
+    wh: '4/3',//宽高比，可以自己定义视频的宽高或宽高比如：wh:'4:3',或wh:'1080:720'
     lv: '0',//是否是直播流，=1则锁定进度栏
     loaded: 'loadedHandler',//当播放器加载完成后发送该js函数loaded
     //调用播放器的所有参数列表结束
@@ -37,7 +37,7 @@ var flashvars = {
     //调用自定义播放器参数结束
 };
 var params = {bgcolor: '#FFF', allowFullScreen: true, allowScriptAccess: 'always'};//这里定义播放器的其它参数如背景色（跟flashvars中的b不同），是否支持全屏，是否支持交互
-var video = ['http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4'];
+var video = ['http://47.95.233.255:9301/mp4/yyjf_gq.mp4'];
 CKobject.embed('../ckplayer/ckplayer.swf', 'a1', 'ckplayer_a1', '100%', '100%', false, flashvars, video, params);
 // function loadedHandler() {
 //     if (CKobject.getObjectById('ckplayer_a1').getType()) {//说明使用html5播放器
