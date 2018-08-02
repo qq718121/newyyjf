@@ -53,6 +53,11 @@ let Config = {
         dir: SRC_DIR + 'webGl',
         src: SRC_DIR + 'webGl/**', // images目录：./src/images/
         dist: DIST_DIR + 'webGl' // images文件build后存放的目录：./dist/images
+    },
+    xml: {
+        dir: SRC_DIR + 'xml',
+        src: SRC_DIR + 'xml/*.xml', // images目录：./src/images/
+        dist: DIST_DIR // images文件build后存放的目录：./dist/images
     }
 };
 

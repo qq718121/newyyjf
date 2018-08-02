@@ -27,6 +27,10 @@ function prod() {
         return gulp.src(Config.html.src)
             .pipe(gulp.dest(Config.html.dist));
     });
+    gulp.task('xml', function () {
+        return gulp.src(Config.xml.src)
+            .pipe(gulp.dest(Config.xml.dist));
+    });
     /**
      * assets文件夹下的所有文件处理
      */
@@ -172,6 +176,6 @@ function prod() {
             .pipe(changed(Config.webGl.dist)) // 对比文件是否有过改动（此处填写的路径和输出路径保持一致）
             .pipe(gulp.dest(Config.webGl.dist));
     });
-    gulp.task('build', ['html', 'css', 'sass', 'assets', 'images', 'js', 'vendor', 'js-concat', 'ckPlayer', 'webGl']);
+    gulp.task('build', ['html', 'css', 'sass', 'assets', 'images', 'js', 'vendor', 'js-concat', 'ckPlayer', 'webGl','xml']);
 }
 module.exports = prod;
